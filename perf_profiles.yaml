@@ -1,0 +1,34 @@
+parameter_defaults:
+  hci_enterprise_default:
+    workload::average_guest_flavor: 'm1.medium'
+    workload::average_guest_memory_size_in_mb: 2048
+    workload::average_guest_CPU_utilization_percentage: 50
+    workload::tuned_profile: 'throughput-performance'
+    workload::jumbo_frames: storage_mgmt_nic # does not support updates
+    workload::numa_service:: ceph-osd@.service
+    workload::numa_nic:: storage_mgmt_nic
+    workload::numa_policy:: preferred
+  hci_enterprise_many_small_vms:
+    workload::average_guest_flavor: 'm1.small'
+    workload::average_guest_memory_size_in_mb: 1024
+    workload::average_guest_CPU_utilization_percentage: 20
+    workload::tuned_profile: 'throughput-performance'
+    workload::jumbo_frames: storage_mgmt_nic # does not support updates
+    workload::numa_service:: ceph-osd@.service
+    workload::numa_nic:: storage_mgmt_nic
+    workload::numa_policy:: preferred
+  hci_enterprise_few_large_vms:
+    workload::average_guest_flavor: 'm1.xlarge'
+    workload::average_guest_memory_size_in_mb: 4096
+    workload::average_guest_CPU_utilization_percentage: 80
+    workload::tuned_profile: 'throughput-performance'
+    workload::jumbo_frames: storage_mgmt_nic # does not support updates
+    workload::numa_service:: ceph-osd@.service
+    workload::numa_nic:: storage_mgmt_nic
+    workload::numa_policy:: preferred
+  hci_nfv_default:
+    workload::average_guest_flavor: 'm1.large'
+    workload::average_guest_memory_size_in_mb: 8192
+    workload::average_guest_CPU_utilization_percentage: 90
+    workload::tuned_profile: 'latency-performance'
+    workload::jumbo_frames: storage_mgmt_nic # does not support updates
